@@ -1,0 +1,114 @@
+---
+// src/components/Header.astro
+// サイトのヘッダー。ロゴ＋ナビゲーション＋モバイルメニュー
+
+const navItems = [
+  { label: 'ホーム', href: '/' },
+  { label: 'AI×個人手配旅', href: '/category/travel' },
+  { label: '暮らしと家計', href: '/category/life' },
+  { label: '実家整理・不動産', href: '/category/real-estate' },
+  { label: 'お問い合わせ', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-base/90 backdrop-blur-md border-b border-light-blue/20 shadow-soft">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+
+    <!-- ロゴ -->
+    <a href="/" class="flex items-center gap-3 group" aria-label="トップページへ">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-light-blue to-navy flex items-center justify-center text-white font-bold text-lg shadow-soft group-hover:shadow-card transition-shadow duration-300">
+        く
+      </div>
+      <div class="leading-tight">
+        <span class="block text-xs text-light-blue font-medium tracking-wider">AI × TRAVEL × LIFE</span>
+        <span class="block text-sm font-bold text-navy group-hover:text-light-blue transition-colors duration-200">
+          くれた夫婦のAI旅と暮らし
+        </span>
+      </div>
+    </a>
+
+    <!-- デスクトップナビゲーション -->
+    <nav class="hidden lg:flex items-center gap-1" aria-label="メインナビゲーション">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || currentPath.startsWith(item.href + '/');
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+              isActive
+                ? 'bg-light-blue text-white shadow-soft'
+                : 'text-navy hover:bg-pale-blue hover:text-light-blue',
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- モバイルハンバーガーボタン -->
+    <button
+      id="menu-toggle"
+      class="lg:hidden flex flex-col gap-1.5 p-2 rounded-xl hover:bg-pale-blue transition-colors duration-200"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="w-6 h-0.5 bg-navy rounded transition-all duration-300" id="bar1"></span>
+      <span class="w-6 h-0.5 bg-navy rounded transition-all duration-300" id="bar2"></span>
+      <span class="w-4 h-0.5 bg-navy rounded transition-all duration-300 self-end" id="bar3"></span>
+    </button>
+  </div>
+
+  <!-- モバイルメニュー -->
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden bg-base/95 backdrop-blur-md border-t border-light-blue/20"
+  >
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1" aria-label="モバイルナビゲーション">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || currentPath.startsWith(item.href + '/');
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200',
+              isActive
+                ? 'bg-light-blue text-white'
+                : 'text-navy hover:bg-pale-blue hover:text-light-blue',
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+
+    // ハンバーガーアイコン → ✕ アニメーション
+    if (isOpen) {
+      bar1?.classList.add('rotate-45', 'translate-y-2');
+      bar2?.classList.add('opacity-0');
+      bar3?.classList.add('-rotate-45', '-translate-y-2', 'w-6');
+    } else {
+      bar1?.classList.remove('rotate-45', 'translate-y-2');
+      bar2?.classList.remove('opacity-0');
+      bar3?.classList.remove('-rotate-45', '-translate-y-2', 'w-6');
+    }
+  });
+</script>

@@ -1,0 +1,255 @@
+/* ============================================
+   グローバルCSS: くれた夫婦のAI旅と暮らし
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- ベーススタイル ---- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base text-navy font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #73A9C2;
+    color: #ffffff;
+  }
+}
+
+/* ---- カスタムコンポーネント ---- */
+@layer components {
+
+  /* ===== 吹き出しパーツ ===== */
+  .balloon-wrap {
+    @apply flex items-start gap-3 my-6;
+  }
+
+  .balloon-avatar {
+    @apply flex-shrink-0 w-14 h-14 rounded-full object-cover border-2 border-light-blue shadow-soft;
+    object-position: center 15%;
+  }
+
+  .balloon-avatar-label {
+    @apply text-xs text-center text-warm-gray font-bold -mt-2.5 leading-none;
+  }
+
+  .balloon-left .balloon-body {
+    @apply relative bg-white border-2 border-light-blue rounded-2xl rounded-tl-none px-5 py-4 shadow-soft text-navy text-sm leading-relaxed;
+  }
+
+  .balloon-left .balloon-body::before {
+    content: '';
+    @apply absolute -left-3 top-4 border-8 border-transparent;
+    border-right-color: #73A9C2;
+  }
+
+  .balloon-left .balloon-body::after {
+    content: '';
+    @apply absolute -left-2 top-[18px] border-8 border-transparent;
+    border-right-color: white;
+  }
+
+  .balloon-right {
+    @apply flex-row-reverse;
+  }
+
+  .balloon-right .balloon-body {
+    @apply relative bg-sage/20 border-2 border-sage rounded-2xl rounded-tr-none px-5 py-4 shadow-soft text-navy text-sm leading-relaxed;
+  }
+
+  .balloon-right .balloon-body::before {
+    content: '';
+    @apply absolute -right-3 top-4 border-8 border-transparent;
+    border-left-color: #94A896;
+  }
+
+  .balloon-right .balloon-body::after {
+    content: '';
+    @apply absolute -right-2 top-[18px] border-8 border-transparent;
+    border-left-color: rgba(148, 168, 150, 0.2);
+  }
+
+  /* ===== ステップ表示（タイムライン） ===== */
+  .steps-container {
+    @apply relative my-8;
+  }
+
+  .steps-container::before {
+    content: '';
+    @apply absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-light-blue to-sage;
+  }
+
+  .step-item {
+    @apply relative flex gap-5 pb-8 pl-16;
+  }
+
+  .step-number {
+    @apply absolute left-0 flex items-center justify-center w-12 h-12 rounded-full bg-light-blue text-white font-bold text-lg shadow-soft z-10;
+    font-family: 'Zen Maru Gothic', sans-serif;
+  }
+
+  .step-content {
+    @apply bg-white rounded-2xl p-5 shadow-soft border border-pale-blue flex-1;
+  }
+
+  .step-title {
+    @apply font-bold text-navy text-base mb-2;
+  }
+
+  .step-body {
+    @apply text-warm-gray text-sm leading-relaxed;
+  }
+
+  /* ===== 装飾ボックス ===== */
+  .info-box {
+    @apply my-6 p-5 rounded-2xl border-l-4 border-light-blue bg-pale-blue/30;
+  }
+
+  .info-box-title {
+    @apply font-bold text-light-blue text-sm mb-2 flex items-center gap-2;
+  }
+
+  .warning-box {
+    @apply my-6 p-5 rounded-2xl border-l-4 border-amber-400 bg-amber-50;
+  }
+
+  .warning-box-title {
+    @apply font-bold text-amber-600 text-sm mb-2 flex items-center gap-2;
+  }
+
+  .tip-box {
+    @apply my-6 p-5 rounded-2xl border-l-4 border-sage bg-sage/10;
+  }
+
+  .tip-box-title {
+    @apply font-bold text-sage text-sm mb-2 flex items-center gap-2;
+  }
+
+  /* ===== アフィリエイトボタン（SWELL風・光るデザイン） ===== */
+  .affiliate-btn {
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-white text-base overflow-hidden transition-all duration-300;
+    background: linear-gradient(135deg, #73A9C2 0%, #1C2D42 100%);
+    box-shadow: 0 4px 24px rgba(115, 169, 194, 0.4);
+  }
+
+  .affiliate-btn::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 60%);
+  }
+
+  .affiliate-btn:hover::before {
+    @apply opacity-100;
+  }
+
+  .affiliate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(115, 169, 194, 0.5);
+  }
+
+  .affiliate-btn-shine::after {
+    content: '';
+    @apply absolute top-0 -left-full h-full w-1/2 opacity-30;
+    background: linear-gradient(90deg, transparent, white, transparent);
+    animation: shine 2.5s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    0% { left: -100%; }
+    60%, 100% { left: 150%; }
+  }
+
+  /* ===== 比較テーブル ===== */
+  .compare-table {
+    @apply w-full my-6 rounded-2xl overflow-hidden shadow-soft;
+  }
+
+  .compare-table th {
+    @apply bg-navy text-white py-3 px-4 text-sm font-bold;
+  }
+
+  .compare-table td {
+    @apply py-3 px-4 text-sm border-b border-pale-blue;
+  }
+
+  .compare-table tr:nth-child(even) td {
+    @apply bg-cream;
+  }
+
+  .compare-table .highlight {
+    @apply bg-pale-blue/40 font-semibold text-light-blue;
+  }
+
+  /* ===== YouTube埋め込みエリア ===== */
+  .youtube-embed {
+    @apply relative my-8 rounded-2xl overflow-hidden shadow-card;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+  }
+
+  .youtube-embed iframe {
+    @apply absolute top-0 left-0 w-full h-full rounded-2xl;
+  }
+
+  /* ===== SNSシェアボタン ===== */
+  .share-btn {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm text-white transition-all duration-200;
+  }
+
+  .share-btn:hover {
+    transform: translateY(-1px);
+    @apply shadow-soft;
+  }
+
+  .share-btn-x { @apply bg-black; }
+  .share-btn-line { @apply bg-[#06C755]; }
+  .share-btn-facebook { @apply bg-[#1877F2]; }
+
+  /* ===== カードホバーアニメーション ===== */
+  .post-card {
+    @apply bg-white rounded-3xl overflow-hidden shadow-soft transition-all duration-300 border border-transparent;
+  }
+
+  .post-card:hover {
+    @apply shadow-card-hover border-light-blue/30 -translate-y-1;
+  }
+
+  /* ===== カテゴリータグ ===== */
+  .tag {
+    @apply inline-block px-3 py-1 text-xs font-bold rounded-full;
+  }
+
+  .tag-travel {
+    @apply bg-pale-blue text-light-blue;
+  }
+
+  .tag-life {
+    @apply bg-sage/20 text-sage;
+  }
+
+  .tag-real-estate {
+    @apply bg-cream text-warm-gray border border-warm-gray/30;
+  }
+}
+
+/* ---- ユーティリティ ---- */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-dot-pattern {
+    background-image: radial-gradient(circle, rgba(148, 168, 150, 0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}

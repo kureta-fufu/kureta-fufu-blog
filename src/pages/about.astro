@@ -1,0 +1,154 @@
+---
+// src/pages/about.astro
+// プロフィール詳細ページ
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="私たちについて"
+  description="くれた夫婦のプロフィールページです。AIと旅行が大好きな夫と、VlogやSNSで記録することが好きな妻、ふたりで楽しんでいるブログです。"
+>
+
+  <!-- ヒーロー -->
+  <section class="bg-gradient-to-br from-pale-blue via-base to-sage/20 py-20">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-light-blue font-bold text-xs tracking-[0.3em] uppercase mb-4">PROFILE</p>
+      <h1 class="text-4xl font-bold text-navy mb-6">私たちについて</h1>
+      <img
+        src="/images/avatar.jpeg"
+        alt="くれた夫婦"
+        class="w-36 h-36 rounded-full mx-auto object-cover shadow-card border-4 border-white mb-6"
+      />
+      <p class="text-warm-gray leading-relaxed max-w-xl mx-auto">
+        はじめまして！「くれた夫婦」です🐨<br />
+        このブログを読んでくださり、ありがとうございます。<br />
+        ふたりで旅と暮らしを楽しみながら、日々の記録を発信しています。
+      </p>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section class="py-16 bg-base">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="bg-white rounded-3xl p-8 shadow-soft border border-light-blue/20 mb-12">
+        <p class="text-light-blue font-bold text-xs tracking-[0.3em] uppercase mb-3">CONCEPT</p>
+        <h2 class="text-2xl font-bold text-navy mb-4">このブログのコンセプト</h2>
+        <p class="text-warm-gray leading-relaxed mb-4">
+          「旅行会社に頼らなくても、AIを使えばもっと自由で、もっとお得に、こだわりの旅ができる！」
+        </p>
+        <p class="text-warm-gray leading-relaxed mb-4">
+          私たちは AI（Gemini）とポイント特典を活用して旅程を組み立て、ヨーロッパ個人手配旅行を実現しました。
+          旅行会社で同じような4〜5つ星ホテル（ヒルトン等）での2カ国周遊ツアーを頼めば2名で約180万〜200万円以上かかるプランを、現地での贅沢な体験まで全部込みで総額約140万円におさえることができました。
+        </p>
+        <p class="text-warm-gray leading-relaxed">
+          旅の記録だけでなく、新婚生活・暮らし・実家整理など、20〜30代夫婦のリアルな日常も
+          プロンプトや実体験を交えてお届けしていきます。ヨーロッパ旅行の YouTube Vlog も発信中🎬
+        </p>
+      </div>
+
+      <!-- 夫婦それぞれの紹介 -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+
+        <!-- 夫カード -->
+        <div class="bg-gradient-to-br from-pale-blue to-base rounded-3xl p-8 shadow-soft border border-light-blue/20 text-center">
+          <img
+            src="/images/husband-spark.png"
+            alt="夫"
+            class="w-24 h-auto mx-auto mb-4"
+          />
+          <h3 class="text-xl font-bold text-navy mb-1">夫</h3>
+          <p class="text-light-blue text-xs mb-4">AI・旅行計画オタク</p>
+          <p class="text-warm-gray text-sm leading-relaxed">
+            旅行計画を立てるのが大好きで、とことんこだわる性格。
+            AI（Gemini）を使った旅程作りにハマり、ヨーロッパ個人手配旅行を実現。
+            「いつかどこでも個人手配で行ける夫婦になりたい」が夢。
+          </p>
+          <div class="mt-4 text-xs text-warm-gray space-y-1">
+            <p>✈️ 好きなこと：旅行計画・AI活用・地図を眺めること</p>
+            <p>🌍 行きたい国：東欧・北欧・中南米</p>
+          </div>
+        </div>
+
+        <!-- 妻カード -->
+        <div class="bg-gradient-to-br from-sage/20 to-base rounded-3xl p-8 shadow-soft border border-sage/30 text-center">
+          <img
+            src="/images/wife-smile.png"
+            alt="妻"
+            class="w-24 h-auto mx-auto mb-4"
+          />
+          <h3 class="text-xl font-bold text-navy mb-1">妻</h3>
+          <p class="text-sage text-xs mb-4">Vlog・思い出づくりが好き</p>
+          <p class="text-warm-gray text-sm leading-relaxed">
+            旅の写真や動画を撮って思い出を残すのが大好き。
+            YouTube Vlog や Instagram で夫婦の日常・旅の記録を発信中。
+            北欧インテリアが好きで、おうちを少しずつ模様替え中🌿
+          </p>
+          <div class="mt-4 text-xs text-warm-gray space-y-1">
+            <p>📸 好きなこと：動画・写真・インテリア・カフェ巡り</p>
+            <p>🏠 最近の関心：暮らしのDIY・北欧雑貨</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- なぜAI×個人手配旅をしたのか -->
+      <div class="bg-white rounded-3xl p-8 shadow-soft border border-light-blue/20 mb-8">
+        <p class="text-light-blue font-bold text-xs tracking-[0.3em] uppercase mb-3">STORY</p>
+        <h2 class="text-2xl font-bold text-navy mb-4">なぜ AI × 個人手配旅を始めたの？</h2>
+        <p class="text-warm-gray leading-relaxed mb-4">
+          新婚旅行でヨーロッパを旅したいと思ったとき、旅行会社の見積もりに驚きました。
+          「本当にこの金額を払うしかないのか？」と思い、AIを使って自分たちで旅程を組んでみることにしました。
+        </p>
+        <p class="text-warm-gray leading-relaxed mb-6">
+          Gemini に「スペイン＋ヴェネチア8泊10日のプランを組んで」とプロンプトを投げたことをきっかけに、
+          航空券・ホテル・現地ツアーをすべて個人手配。結果的に旅行会社の見積もりより大幅に節約でき、
+          しかも「自分たちだけのこだわりプラン」で旅ができました。
+        </p>
+        <a
+          href="/posts/first-post"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-navy text-white font-bold text-sm hover:bg-light-blue transition-colors duration-200"
+        >
+          旅行記事を読む →
+        </a>
+      </div>
+
+      <!-- SNSへの誘導 -->
+      <div class="bg-gradient-to-br from-pale-blue to-sage/20 rounded-3xl p-8 shadow-soft border border-light-blue/20 text-center">
+        <h2 class="text-xl font-bold text-navy mb-2">SNS でも発信中！</h2>
+        <p class="text-warm-gray text-sm mb-6">旅のリアルな様子は YouTube Vlog・Instagram でもお届けしています。</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://www.youtube.com/@kureta-kureta"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-500 text-white font-bold text-sm hover:bg-red-600 transition-colors"
+          >
+            <!-- YouTube icon -->
+            <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+            YouTube
+          </a>
+          <a
+            href="https://www.instagram.com/kureta_life"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-pink-500 text-white font-bold text-sm hover:bg-pink-600 transition-colors"
+          >
+            <!-- Instagram icon -->
+            <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.2 4.8 1.7 5 5 .1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.2 3.3-1.7 4.8-5 5-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.2-4.8-1.7-5-5C2.1 15.6 2 15.3 2 12c0-3.2 0-3.6.1-4.8.2-3.3 1.7-4.8 5-5 1.2-.1 1.6-.1 4.9-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+            Instagram
+          </a>
+          <a
+            href="https://x.com/kureta_kureta_x"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-navy text-white font-bold text-sm hover:bg-light-blue transition-colors"
+          >
+            <!-- X icon -->
+            <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X（Twitter）
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

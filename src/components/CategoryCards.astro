@@ -1,0 +1,116 @@
+---
+// src/components/CategoryCards.astro
+// トップページの3大テーマカテゴリーカード
+
+const categories = [
+  {
+    id: 'travel',
+    emoji: '✈️',
+    title: 'AI×個人手配旅',
+    subtitle: 'Geminiプロンプトを使って\nコスパ最強の旅を設計',
+    description:
+      'ホテル・航空券・観光ルートまでAIに相談しながら全て自分たちで手配。旅行会社より安く、自由な旅をつくる完全マニュアル。',
+    href: '/category/travel',
+    color: 'from-light-blue to-navy',
+    bgColor: 'bg-pale-blue',
+    textColor: 'text-light-blue',
+    borderColor: 'border-light-blue/30',
+    tagClass: 'tag-travel',
+    tags: ['プロンプト全文', 'ヨーロッパ', 'アジア'],
+    buttonColor: 'bg-light-blue hover:bg-navy',
+  },
+  {
+    id: 'life',
+    emoji: '🏠',
+    title: '暮らしと家計',
+    subtitle: '20代新婚夫婦の\nリアルなお金管理',
+    description:
+      '毎月の家計公開・節約テクニック・投資初心者の記録まで。二人で豊かに暮らすためのお金との向き合い方を等身大でお届け。',
+    href: '/category/life',
+    color: 'from-sage to-navy',
+    bgColor: 'bg-sage/10',
+    textColor: 'text-sage',
+    borderColor: 'border-sage/30',
+    tagClass: 'tag-life',
+    tags: ['家計公開', '節約', '新婚生活'],
+    buttonColor: 'bg-sage hover:bg-navy',
+  },
+  {
+    id: 'real-estate',
+    emoji: '🏡',
+    title: '実家整理・不動産',
+    subtitle: '実家じまいと\n不動産活用の記録',
+    description:
+      '祖父母の実家整理から相続・空き家対策まで。誰もが直面するけど情報が少ない「実家問題」をリアルな経験とともに記録します。',
+    href: '/category/real-estate',
+    color: 'from-warm-gray to-navy',
+    bgColor: 'bg-cream',
+    textColor: 'text-warm-gray',
+    borderColor: 'border-warm-gray/20',
+    tagClass: 'tag-real-estate',
+    tags: ['実家じまい', '相続', '空き家'],
+    buttonColor: 'bg-warm-gray hover:bg-navy',
+  },
+];
+---
+
+<section class="py-20 bg-base">
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- セクションタイトル -->
+    <div class="text-center mb-14">
+      <p class="text-light-blue font-bold text-xs tracking-[0.3em] uppercase mb-3">CATEGORIES</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">3つのテーマで記録する<br class="md:hidden" />私たちの生活</h2>
+      <p class="text-warm-gray text-sm md:text-base max-w-md mx-auto">
+        旅・暮らし・不動産。夫婦二人のリアルな経験と失敗を、惜しみなく公開します。
+      </p>
+    </div>
+
+    <!-- カードグリッド -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {categories.map((cat, index) => (
+        <a
+          href={cat.href}
+          class:list={[
+            'group block rounded-3xl overflow-hidden border-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-card-hover',
+            cat.bgColor,
+            cat.borderColor,
+          ]}
+          style={`animation-delay: ${index * 0.1}s`}
+          id={`category-${cat.id}`}
+        >
+          <!-- カード上部グラデーション -->
+          <div class:list={['h-2 bg-gradient-to-r', cat.color]}></div>
+
+          <div class="p-7">
+            <!-- アイコン＋タイトル -->
+            <div class="flex items-start gap-4 mb-4">
+              <div class="text-4xl">{cat.emoji}</div>
+              <div>
+                <h3 class:list={['font-bold text-lg text-navy group-hover:text-light-blue transition-colors duration-200', cat.textColor === 'text-sage' && 'group-hover:text-sage']}>{cat.title}</h3>
+                <p class="text-warm-gray text-xs whitespace-pre-line mt-0.5">{cat.subtitle}</p>
+              </div>
+            </div>
+
+            <!-- 説明文 -->
+            <p class="text-warm-gray text-sm leading-relaxed mb-5">{cat.description}</p>
+
+            <!-- タグ -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              {cat.tags.map((tag) => (
+                <span class:list={['tag', cat.tagClass]}>{tag}</span>
+              ))}
+            </div>
+
+            <!-- ボタン -->
+            <div class:list={[
+              'w-full py-3 rounded-full text-white text-sm font-bold text-center transition-all duration-200',
+              cat.buttonColor,
+            ]}>
+              記事を読む →
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,218 @@
+---
+// src/pages/posts/[slug].astro
+// 記事詳細ページ
+
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const categoryMap = {
+  travel: { label: 'AI×個人手配旅', class: 'tag-travel' },
+  life: { label: '暮らしと家計', class: 'tag-life' },
+  'real-estate': { label: '実家整理・不動産', class: 'tag-real-estate' },
+};
+const catInfo = categoryMap[post.data.category];
+
+const formattedDate = post.data.pubDate.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const updatedDate = post.data.updatedDate?.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// シェアURL
+const siteUrl = Astro.site ?? 'https://kureta-fufu.pages.dev';
+const pageUrl = encodeURIComponent(new URL(Astro.url.pathname, siteUrl).toString());
+const pageTitle = encodeURIComponent(post.data.title);
+const xShareUrl = `https://x.com/intent/tweet?text=${pageTitle}&url=${pageUrl}&via=kureta_kureta_x`;
+const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${pageUrl}`;
+const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogImage={post.data.heroImage ?? '/images/og-default.png'}
+  ogType="article"
+  pubDate={post.data.pubDate}
+>
+  <article class="max-w-4xl mx-auto px-4 py-12">
+
+    <!-- ====== 記事ヘッダー ====== -->
+    <header class="mb-10">
+      <!-- パンくずリスト -->
+      <nav class="text-xs text-warm-gray mb-5 flex items-center gap-2" aria-label="パンくずリスト">
+        <a href="/" class="hover:text-light-blue transition-colors">ホーム</a>
+        <span>›</span>
+        <a href={`/category/${post.data.category}`} class="hover:text-light-blue transition-colors">
+          {catInfo.label}
+        </a>
+        <span>›</span>
+        <span class="text-navy line-clamp-1">{post.data.title}</span>
+      </nav>
+
+      <!-- カテゴリータグ -->
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class:list={['tag', catInfo.class]}>{catInfo.label}</span>
+        {post.data.tags?.map((tag) => (
+          <span class="inline-block px-3 py-1 text-xs bg-cream text-warm-gray rounded-full">#{tag}</span>
+        ))}
+      </div>
+
+      <!-- タイトル -->
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-navy leading-tight mb-5 text-balance">
+        {post.data.title}
+      </h1>
+
+      <!-- 日付・更新日 -->
+      <div class="flex flex-wrap items-center gap-4 text-xs text-warm-gray mb-6">
+        <time datetime={post.data.pubDate.toISOString()} class="flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          投稿: {formattedDate}
+        </time>
+        {updatedDate && (
+          <time class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            更新: {updatedDate}
+          </time>
+        )}
+      </div>
+
+      <!-- アイキャッチ画像 -->
+      {post.data.heroImage && (
+        <div class="rounded-3xl overflow-hidden shadow-card mb-8 aspect-video">
+          <img
+            src={post.data.heroImage}
+            alt={post.data.title}
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      )}
+
+      <!-- YouTube動画埋め込み（ヘッダー直下） -->
+      {post.data.youtube && (
+        <div class="youtube-embed mb-8">
+          <iframe
+            src={`https://www.youtube.com/embed/${post.data.youtube}`}
+            title={`${post.data.title} - YouTube動画`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      )}
+
+      <!-- 記事概要 -->
+      <div class="bg-pale-blue/40 border border-light-blue/20 rounded-2xl p-5 mb-6">
+        <p class="text-sm text-navy leading-relaxed">
+          <strong>📝 この記事について：</strong>{post.data.description}
+        </p>
+      </div>
+
+      <!-- 記事上部シェアボタン -->
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="text-xs text-warm-gray font-bold">シェアする：</span>
+        <a href={xShareUrl} target="_blank" rel="noopener noreferrer" class="share-btn share-btn-x text-xs px-4 py-2" id="share-x-top">
+          𝕏 でシェア
+        </a>
+        <a href={lineShareUrl} target="_blank" rel="noopener noreferrer" class="share-btn share-btn-line text-xs px-4 py-2" id="share-line-top">
+          LINE でシェア
+        </a>
+        <a href={fbShareUrl} target="_blank" rel="noopener noreferrer" class="share-btn share-btn-facebook text-xs px-4 py-2" id="share-fb-top">
+          Facebook
+        </a>
+      </div>
+    </header>
+
+    <!-- ====== 記事本文 ====== -->
+    <div class="prose prose-base max-w-none
+      prose-headings:font-bold prose-headings:text-navy
+      prose-h2:text-2xl prose-h2:border-b-2 prose-h2:border-light-blue/30 prose-h2:pb-2 prose-h2:mt-12
+      prose-h3:text-xl prose-h3:mt-8
+      prose-p:text-warm-gray prose-p:leading-relaxed
+      prose-a:text-light-blue prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-navy
+      prose-ul:text-warm-gray prose-ol:text-warm-gray
+      prose-li:my-1
+      prose-blockquote:border-light-blue prose-blockquote:bg-pale-blue/30 prose-blockquote:rounded-r-xl prose-blockquote:not-italic
+      prose-code:bg-cream prose-code:text-navy prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
+      prose-pre:bg-navy prose-pre:rounded-2xl
+      prose-img:rounded-2xl prose-img:shadow-card
+      prose-hr:border-light-blue/20
+    ">
+      <Content />
+    </div>
+
+    <!-- ====== 記事フッター ====== -->
+    <footer class="mt-12 pt-8 border-t border-light-blue/20">
+
+      <!-- 著者カード -->
+      <div class="bg-gradient-to-br from-pale-blue to-sage/10 rounded-3xl p-6 flex flex-col sm:flex-row gap-5 items-center sm:items-start mb-8 border border-light-blue/20">
+        <img src="/images/avatar.jpeg" alt="くれた夫婦" class="w-20 h-20 rounded-full object-cover shadow-soft flex-shrink-0 border-2 border-white" />
+        <div class="text-center sm:text-left">
+          <p class="font-bold text-navy text-base mb-1">くれた夫婦</p>
+          <p class="text-warm-gray text-xs leading-relaxed">
+            20代後半の新婚夫婦。AI×個人手配旅行・新婚生活の家計管理・実家整理をリアルに記録中。Geminiプロンプトや旅行の実体験を惜しみなく公開します。YouTubeでVlogも発信しています！
+          </p>
+          <div class="mt-3 flex gap-2">
+            <a href="https://x.com/kureta_kureta_x" target="_blank" rel="noopener noreferrer" class="text-xs text-light-blue hover:underline">𝕏 フォロー</a>
+            <span class="text-warm-gray">·</span>
+            <a href="https://www.youtube.com/@kureta-kureta" target="_blank" rel="noopener noreferrer" class="text-xs text-light-blue hover:underline">▶ YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 記事下部シェアボタン -->
+      <div class="text-center mb-8">
+        <p class="text-sm font-bold text-navy mb-4">この記事が参考になったらシェアしてください 🙏</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href={xShareUrl} target="_blank" rel="noopener noreferrer" class="share-btn share-btn-x" id="share-x-bottom">
+            𝕏 でシェア
+          </a>
+          <a href={lineShareUrl} target="_blank" rel="noopener noreferrer" class="share-btn share-btn-line" id="share-line-bottom">
+            LINE でシェア
+          </a>
+          <a href={fbShareUrl} target="_blank" rel="noopener noreferrer" class="share-btn share-btn-facebook" id="share-fb-bottom">
+            Facebook でシェア
+          </a>
+        </div>
+      </div>
+
+      <!-- 関連カテゴリーへ -->
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href={`/category/${post.data.category}`}
+          class="flex-1 text-center px-6 py-4 rounded-2xl bg-light-blue text-white font-bold text-sm hover:bg-navy transition-colors duration-200"
+        >
+          ← {catInfo.label}の記事一覧
+        </a>
+        <a
+          href="/"
+          class="flex-1 text-center px-6 py-4 rounded-2xl border-2 border-navy text-navy font-bold text-sm hover:bg-navy hover:text-white transition-colors duration-200"
+        >
+          トップページへ戻る
+        </a>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>

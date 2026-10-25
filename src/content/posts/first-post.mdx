@@ -1,0 +1,711 @@
+---
+title: "【プロンプト全文公開】AIでつくるスペイン・ヴェネチア8泊10日完全個人手配マニュアル"
+description: "AIを使って格安航空券・ホテル・観光ルートをすべて個人手配したスペイン（マドリード・トレド・バルセロナ）＋ヴェネチア8泊10日の旅。実際に使ったプロンプト全文と費用内訳、リアルな体験談をまとめて公開します。"
+pubDate: 2026-10-01
+category: "travel"
+tags: ["スペイン", "ヴェネチア", "AI旅行", "個人手配", "プロンプト", "ヨーロッパ旅行", "バルセロナ", "マドリード"]
+heroImage: "/images/trip-photos/barcelona/barcelona-07.jpg"
+youtube: ""
+affiliate: true
+draft: false
+---
+
+<div class="info-box">
+<p class="info-box-title">💡 この記事でわかること</p>
+
+- AIで旅程を設計するときの**プロンプト全文5選**（コピペOK・カスタマイズ方法付き）
+- スペイン＋ヴェネチア8泊10日の**実際の総費用・内訳**（2名合計約140万円）
+- **リアルなヒヤリハット体験談**と現地で役立ったAI活用法
+- **アリラグーナ線・チケット事前予約**など旅行者が迷う最新実情報
+
+</div>
+
+---
+
+「旅行会社に頼まなきゃ、こんな旅は無理だよね…」
+
+そう思っていた私たちが、AIを相棒にしたら**完全個人手配**でスペイン＋ヴェネチア8泊10日を実現できました。
+
+旅行会社で同じような4〜5つ星ホテル（ヒルトン系列等）に泊まる2カ国3都市周遊ツアーを見積もると、ハイシーズンなら2人で**約180万〜200万円以上**（1人あたり90万〜100万円以上）は下らない旅。それが、AIプロンプトとポイント特典を駆使した個人手配なら、現地での豪華ディナーや貸切ゴンドラ、移動費まで全部含めて**2人で総額約140万円**に着地！もちろん旅の中身は一切妥協なし。ヒルトンのルーフトップバーでマジックアワーを眺め、老舗レストランで子豚の丸焼きを食べ、貸切ゴンドラで水路を進む…そんなこだわりの旅を実現できました。
+
+この記事では、私たちが実際にAIに投げた**神プロンプト5選**と、現地でのリアルな体験談をまるごと公開します。
+
+---
+
+## 8泊10日の旅程ダイジェスト
+
+<div class="steps-container">
+  <div class="step-item">
+    <div class="step-icon">1日目</div>
+    <div class="step-content">
+      <h4>日本出発 ＆ シンガポール7時間トランジット（ラウンジ満喫！）</h4>
+      <p>中部国際空港からシンガポール航空で出発。約7時間の乗り継ぎをAIプランでタクシー自力観光（マーライオン・マリーナベイサンズ・ジュエル）。空港に戻ってからは、プラチナデビット付帯の「プライオリティ・パス」でラウンジへ！夫は無料、妻は35ドル（約5,770円）で利用し、シャワーで汗を流して軽食＆お酒で乾杯してから深夜便へ。</p>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-icon">2日目</div>
+    <div class="step-content">
+      <h4>バルセロナ到着 → 高速鉄道iryoでマドリードへ</h4>
+      <p>早朝バルセロナ空港に着陸後、高速鉄道iryo（特大荷物枠追加）でマドリードへ直行！荷物を預けて旧市街散策、日曜無料枠のプラド美術館で宮廷芸術を鑑賞し、夜はウエルタス地区でバル巡り（ハシゴ酒）。</p>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-icon">3日目</div>
+    <div class="step-content">
+      <h4>世界遺産・古都トレド日帰り ＆ ピカソ『ゲルニカ』</h4>
+      <p>近郊特急Avantでトレドへ。駅前タクシー待機ワープで展望台の絶景から旧市街へ直行し、名店「El Trébol」で絶品カルカムーサランチ。マドリード帰還後はソフィア王妃芸術センターで『ゲルニカ』を鑑賞し、夜は名物イカサンドの「Bar EL Brillante」へ。</p>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-icon">4日目</div>
+    <div class="step-content">
+      <h4>スペイン王宮 ＆ 老舗ボティン ＆ バルセロナへ移動</h4>
+      <p>豪華絢爛なスペイン王宮を見学後、世界最古のレストラン「ボティン」で名物の『子豚の丸焼き』コースを堪能！お土産を購入し、夕方の高速鉄道AVEでバルセロナへ移動。「アレクサンドラ バルセロナ ホテル」にチェックイン。</p>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-icon">5日目</div>
+    <div class="step-content">
+      <h4>バルセロナ旧市街一直線ルート ＆ 名門パエリア</h4>
+      <p>朝一番のカサ・バトリョからスタートし、熱気あふれるボケリア市場でランチ。グエル邸・ピカソ美術館を巡り、夜は老舗「セッテ・ポルタス（7 Portes）」で絶品パエリアディナー。</p>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-icon">6日目</div>
+    <div class="step-content">
+      <h4>サグラダ・ファミリア ＋ 真夏のシエスタ（休息）ルート</h4>
+      <p>朝一番にサグラダ・ファミリア（受難のファサードの塔へ登頂）＆サン・パウ病院へ。猛暑の14:30〜16:30はホテルでエアコンを効かせてシエスタ休憩！夕方からタクシーでグエル公園へ乗り付ける完璧スケジュール。</p>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-icon">7日目</div>
+    <div class="step-content">
+      <h4>水の都ヴェネチアへ ＆ 水上バス・夕暮れの絶景ディナー</h4>
+      <p>ブエリング航空でヴェネチアへ。空港から水上バス「アリラグーナ線」でジュデッカ島の「ヒルトン・モリノ・スタッキー」船着き場へ直行！夕食はホテルがある対岸の島で、ヴェネチア本島が夕暮れから夜へと移り変わる美しい夜景を眺めながら、イカスミパスタ・ピザ・ティラミスの贅沢ディナー。</p>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-icon">8日目</div>
+    <div class="step-content">
+      <h4>本島VIP観光 ＆ 午後の貸切ゴンドラ ＆ 最終夜ルーフトップバー</h4>
+      <p>ホテル専用シャトルボートでサン・マルコ広場へ。大聖堂や鐘楼、最古のカフェ「フローリアン」で生演奏ランチ。午後は現地直接交渉で細い水路を巡る貸切ゴンドラを満喫。旅の締めくくりはヒルトンの「Skyline Rooftop Bar」でパノラマ夜景を眺めながらロマンチックに乾杯！</p>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-icon">9-10日目</div>
+    <div class="step-content">
+      <h4>帰国の途（上海ラウンジ満喫） ＆ （お役立ち技）アメックス無料配送</h4>
+      <p>水上バスでマルコ・ポーロ空港へ向かい、中国東方航空（上海乗り継ぎ）で帰国。上海空港でもプライオリティ・パスのラウンジで軽食やドリンクを楽しみながら快適に待機！日本到着後はアメックスの手荷物無料宅配サービスの活用もおすすめです。</p>
+    </div>
+  </div>
+</div>
+
+---
+
+## 【費用大公開】2人で8泊10日の総額はこうなった
+
+旅行の"全部込み"の費用をまとめるとこうなりました。
+
+| カテゴリ | 内容 | 費用（概算） |
+|---|---|---|
+| ✈️ 航空券 | シンガポール航空・中国東方航空など | 約61.7万円 |
+| 🏨 ホテル（マドリード） | アトチャ・ホテル（ヒルトン系列） | 約6.4万円 |
+| 🏨 ホテル（バルセロナ） | アレクサンドラ バルセロナ（3泊中1泊はポイント利用） | 約10万円 |
+| 🏨 ホテル（ヴェネチア） | ヒルトン モリノ・スタッキー（1泊は無料宿泊特典利用） | 約6.4万円 |
+| 🚅 ヨーロッパ内高速鉄道 | iryo / Renfe など | 約4.1万円 |
+| 🎟️ 現地チケット | サグラダ・ファミリア（約1.3万円）、カサ・バトリョ（約1.4万円）、サン・マルコ広場（約1.7万円）など | 約5万円 |
+| 🍽️ 食事・現地体験 | ボティンのディナー（約2.3万円）、ゴンドラ貸切（90ユーロ）など | 約10万円 |
+| 📱 eSIM（Airalo） | 現地SIM代わり・スペイン＋イタリア対応 | 約8,200円 |
+| **合計** | **2人分・全込み** | **約140万円** |
+
+<div class="compare-box">
+
+💡 **ヒルトンのポイント・特典を最大活用したのがポイントです！**
+
+バルセロナでのヒルトン系列1泊分（約77,000ポイント）、ヴェネチアでのヒルトン AmexカードのFree Night特典（1泊分）を使うことで、ホテル代を大幅に削減できました。ヒルトンAmexカードは旅行好きなら持っておいて損はありません。
+
+</div>
+
+---
+
+## 【コピペOK】実際に使ったAI神プロンプト5選
+
+ここからが本番です！実際にAIへ投げた「そのままのプロンプト」を大公開します。`[ ]` の部分をご自身の情報に書き換えれば、そのまま使えます！
+
+---
+
+### プロンプト①：観光ルートの最適化
+
+どこを・どの順番でまわるか、AI任せにするとびっくりするくらいうまく組んでくれます。
+
+```text
+バルセロナ観光ですが、行きたいところがあります。[日付]で以下のところをどうまわると良いか考えて。
+・サグラダファミリア（[日付]午前のチケットを取っている）
+・グエル公園
+・ボケリア市場
+・カサミラ、カサバトリョ、グエル邸
+・セッテ・ポルタス（昼ごはんか夜ご飯）
+・ピカソ美術館、カタルーニャ音楽堂、サンパウ病院
+※宿泊先のホテル（[自分のホテル名]）からの距離や移動のしやすさに注意して考えて。
+```
+
+<div class="tip-box">
+<p class="tip-box-title">✏️ 書き換えポイント</p>
+`[日付]` に実際の観光日を入れて、`[自分のホテル名]` にホテル名を入れるだけ。行きたい場所のリストは自由に差し替えOKです！
+</div>
+
+<div class="balloon-wrap">
+  <div class="flex flex-col items-center">
+    <img src="/images/wife-smile.png" alt="妻" class="balloon-avatar" />
+    <span class="balloon-avatar-label">妻</span>
+  </div>
+  <div class="balloon-left flex-1">
+    <div class="balloon-body">
+      行きたい場所をざっと箇条書きで放り込むだけで、移動時間・体力・開館時間まで考えた完璧なルートを出してくれたの！これだけで旅行ガイドブックより役立った（笑）
+    </div>
+  </div>
+</div>
+
+---
+
+### プロンプト②：気候・シエスタ対策の再スケジュール
+
+夏のヨーロッパは猛暑！一度提案されたルートも「もっとこうしてほしい」と追加指示できるのがAIの真骨頂。
+
+```text
+1日目のカサバトリョは、移動時間や交通費が少なくなるようにうまいこと配置できないか。
+旧市街と新市街のジグザグ移動を避けて、順序を入れ替えるなどしてほしい。
+また、夏の猛暑を避けるため、1日のうち最も暑い時間帯はホテルで休憩（シエスタ）できるような
+ゆとりあるスケジュールに再構築して。
+```
+
+<div class="tip-box">
+<p class="tip-box-title">✏️ 書き換えポイント</p>
+旅行先・時期が変わっても使えます。「雨季」「極寒の時期」「子連れで午後は昼寝必須」など、自分たちの条件を添えて投げましょう！
+</div>
+
+<div class="balloon-wrap balloon-right">
+  <div class="flex flex-col items-center">
+    <img src="/images/husband-think.png" alt="夫" class="balloon-avatar" />
+    <span class="balloon-avatar-label">夫</span>
+  </div>
+  <div class="balloon-right flex-1">
+    <div class="balloon-body">
+      一度出てきたプランでも「ここをこう変えて」って追加指示を重ねていけば、どんどん自分たちに合ったスケジュールになってくんだよ。会話しながら育てていく感じ！
+    </div>
+  </div>
+</div>
+
+<div class="balloon-wrap">
+  <div class="flex flex-col items-center">
+    <img src="/images/wife-spark.png" alt="妻" class="balloon-avatar" />
+    <span class="balloon-avatar-label">妻</span>
+  </div>
+  <div class="balloon-left flex-1">
+    <div class="balloon-body">
+      シエスタの時間に一度ホテルに戻って冷房で涼んで、夕方から再出発するスケジュールにしてもらったおかげで、バテずに一日中楽しめたよ！AIが「14:30〜16:30は観光を避けて」ってちゃんと組んでくれたの😊
+    </div>
+  </div>
+</div>
+
+---
+
+### プロンプト③：美食・レストラン探し
+
+「地元民が行くような店に行きたい！」という希望も、AIなら観光ルートと組み合わせて提案してくれます。
+
+```text
+[日付]のマドリードのランチが決まってない。
+パエリアも食べたいが、子豚の丸焼きなど、マドリードならではの郷土料理や有名な料理が食べられたらいい。
+歴史を感じられるおすすめのレストランと、その後の旧市街散策（マヨール広場など）へ
+スムーズに繋がる動線を提案して。
+```
+
+<div class="tip-box">
+<p class="tip-box-title">✏️ 書き換えポイント</p>
+旅行先の都市名と「食べたいもの」「雰囲気の希望」を入れ替えるだけ。「次に行く観光スポット名」も一緒に書いておくと、移動動線まで考慮したレコメンドをしてくれます！
+</div>
+
+<div class="balloon-wrap">
+  <div class="flex flex-col items-center">
+    <img src="/images/wife-smile.png" alt="妻" class="balloon-avatar" />
+    <span class="balloon-avatar-label">妻</span>
+  </div>
+  <div class="balloon-left flex-1">
+    <div class="balloon-body">
+      マドリードの老舗「ボティン」で食べた名物の子豚の丸焼き、皮がパリパリで本当に美味しかった！世界最古のレストランとしてギネス認定されているお店で食べられたことも感動だったなぁ✨
+    </div>
+  </div>
+</div>
+
+<div class="balloon-wrap balloon-right">
+  <div class="flex flex-col items-center">
+    <img src="/images/husband-smile.png" alt="夫" class="balloon-avatar" />
+    <span class="balloon-avatar-label">夫</span>
+  </div>
+  <div class="balloon-right flex-1">
+    <div class="balloon-body">
+      夜はウエルタス地区のバル巡り！ベルモットとタパスをつまみながら地元の雰囲気にどっぷり浸れたよ。AIに「地元のスペイン人が行くような雰囲気で」って指定したのが良かったかも。
+    </div>
+  </div>
+</div>
+
+---
+
+### プロンプト④：トラブル・緊急時の確認
+
+これ、旅行中に一番助かった使い方かもしれません。現地で「意味がわからない書類・メール・画面」が来たとき、AIに丸投げするだけで瞬時に解決できます。
+
+```text
+（※ここに予約画面のスクショ、または現地で届いたメールのテキストを貼り付ける）
+
+これって内容合ってる？予約はちゃんとできているか、人数や行き先、追加料金などに
+間違いがないか確認して。
+また、この画面の後はどのボタンを押して進めばいい？
+```
+
+<div class="tip-box">
+<p class="tip-box-title">✏️ 使い方のポイント</p>
+テキストをコピペするだけでなく、スクリーンショット画像をそのまま貼り付けてもOK！外国語のメール・予約画面・お知らせもAIが翻訳＋内容確認してくれます。
+</div>
+
+<div class="balloon-wrap balloon-right">
+  <div class="flex flex-col items-center">
+    <img src="/images/husband-spark.png" alt="夫" class="balloon-avatar" />
+    <span class="balloon-avatar-label">夫</span>
+  </div>
+  <div class="balloon-right flex-1">
+    <div class="balloon-body">
+      航空会社からメールが来て「フライトキャンセル！？」と本気で焦ったんだけど、AIにメールの文章を確認してもらったら「ただの5分だけ到着が早まるスケジュール変更」だって判明！あの安心感は忘れられないよ…（笑）
+    </div>
+  </div>
+</div>
+
+<div class="balloon-wrap">
+  <div class="flex flex-col items-center">
+    <img src="/images/wife-panic.png" alt="妻" class="balloon-avatar" />
+    <span class="balloon-avatar-label">妻</span>
+  </div>
+  <div class="balloon-left flex-1">
+    <div class="balloon-body">
+      私はホテルの部屋にあったお酒のラベルを、トレド大聖堂のチケットと勘違いしてAIに質問しちゃったことも（笑）。でも分からない現地の言葉や書類は、とりあえずAIに読み込ませて「これ合ってる？」って聞けるのは本当に心強かった！
+    </div>
+  </div>
+</div>
+
+---
+
+### プロンプト⑤：旅程の最終まとめ・持ち歩き用ドキュメント化
+
+旅の準備が整ったら、最後にAIに「現地で見やすい形にまとめて」とお願いするだけ。紙に印刷してもスマホで見ても使いやすい旅程表が完成します。
+
+```text
+ここまで決まった[旅行先]の旅行日程詳細をまとめて。
+実際に旅行本番でスマホで見たり、印刷して持ち歩いたりできるよう、
+本番で必要な内容（時間、移動手段、注意点）のみにして。
+他のAIにも伝わるように、構造化されたドキュメント形式にしてまとめて。
+```
+
+<div class="tip-box">
+<p class="tip-box-title">✏️ 書き換えポイント</p>
+`[旅行先]` に都市名や国名を入れるだけ。「マークダウン形式で」「表にまとめて」など出力形式の希望を追加すると、さらに使いやすくなります！
+</div>
+
+---
+
+## 現地体験談：場所別リアルレポート
+
+### ① シンガポール・トランジット編（約7時間）
+
+<div class="balloon-wrap balloon-right">
+  <div class="flex flex-col items-center">
+    <img src="/images/husband-spark.png" alt="夫" class="balloon-avatar" />
+    <span class="balloon-avatar-label">夫</span>
+  </div>
+  <div class="balloon-right flex-1">
+    <div class="balloon-body">
+      シンガポールでの約7時間トランジット、実はAIと作戦会議して自力観光ルートを組んだんだ！空港の無料ツアーを狙っていたんだけど予約が取れず、当日枠も満席で…。そこでAIに「7時間で回れる効率ルート」を相談し、タクシーでマーライオンやマリーナベイサンズへ直行！最後に空港直結「ジュエル」の巨大人工滝を見て、フードコートで夕食を食べてから空港制限エリアへ戻ったよ。
+    </div>
+  </div>
+</div>
+
+<div class="balloon-wrap">
+  <div class="flex flex-col items-center">
+    <img src="/images/wife-smile.png" alt="妻" class="balloon-avatar" />
+    <span class="balloon-avatar-label">妻</span>
+  </div>
+  <div class="balloon-left flex-1">
+    <div class="balloon-body">
+      そして空港に戻ってからが大正解だったよね！プラチナデビット（dスマートバンク／旧住信SBI）に付帯する「プライオリティ・パス」を使ってラウンジへ直行！夫は無料、私は同伴者料金35ドル（日本円で約5,770円）で入れたんだけど、暑い中観光したあとにシャワーを浴びてサッパリできたのが本当に生き返った…！軽食やビール・ワインも食べ飲み放題で、深夜便に乗る準備は完璧だったね！
+    </div>
+  </div>
+</div>
+
+---
+
+### ② マドリード・トレド編
+
+<div class="balloon-wrap balloon-right">
+  <div class="flex flex-col items-center">
+    <img src="/images/husband-smile.png" alt="夫" class="balloon-avatar" />
+    <span class="balloon-avatar-label">夫</span>
+  </div>
+  <div class="balloon-right flex-1">
+    <div class="balloon-body">
+      トレドでは駅前タクシーに展望台で待機してもらうワープ術が大正解！絶景の「ミラドール・デル・バジェ展望台」で撮影後、そのまま旧市街へ。お昼に入ったバーレストラン「El Trébol」は、名物の肉煮込み（カルカムーサ）にコロッケ、サングリアとビールを頼んで2人で24€（約4,710円）と最高のコスパだったよ！
+    </div>
+  </div>
+</div>
+
+<div class="max-w-xl mx-auto my-6">
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/madrid/madrid-06.jpg" alt="トレド El Trebolでの昼食" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray text-center">
+      <strong>トレド名物カルカムーサ（El Trébol）</strong><br/>
+      肉の煮込み、コロッケに目玉焼き、サングリアとビールで2人分24€（約4,710円）！
+    </figcaption>
+  </figure>
+</div>
+
+<div class="balloon-wrap">
+  <div class="flex flex-col items-center">
+    <img src="/images/wife-smile.png" alt="妻" class="balloon-avatar" />
+    <span class="balloon-avatar-label">妻</span>
+  </div>
+  <div class="balloon-left flex-1">
+    <div class="balloon-body">
+      3日目の夜に行った「Bar EL Brillante」のイカサンドは、パンが少しパサついていて食べにくかったけど、中のイカフリッター自体はサクサクで美味しかった！ビールと一緒に頼むのが現地流なんだって。この日はたくさん歩いて疲れていてあまり食べられなかったけど、良い思い出！
+    </div>
+  </div>
+</div>
+
+<div class="max-w-xl mx-auto my-6">
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/madrid/madrid-01.jpg" alt="マドリード Bar EL Brillanteのイカサンド" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray text-center">
+      <strong>名物イカサンド（Bar EL Brillante）</strong><br/>
+      サクサクのイカフリッターサンドとビールで2人分13.30€（約2,572円）。現地流の一杯！
+    </figcaption>
+  </figure>
+</div>
+
+<div class="balloon-wrap balloon-right">
+  <div class="flex flex-col items-center">
+    <img src="/images/husband-spark.png" alt="夫" class="balloon-avatar" />
+    <span class="balloon-avatar-label">夫</span>
+  </div>
+  <div class="balloon-right flex-1">
+    <div class="balloon-body">
+      4日目のお昼に行った世界最古のレストラン「ボティン」のコースは感動ものだったね！名物の豚の丸焼きは香ばしくて柔らかく、デザートのチーズケーキまで完食。ちょっと贅沢して2人で120€（約23,205円）だったけど、行く価値大ありだったよ！
+    </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/madrid/madrid-03.jpg" alt="世界最古のレストラン ボティンの子豚の丸焼き" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>世界最古「ボティン」の子豚の丸焼き</strong><br/>
+      4日目の贅沢ランチ。皮はパリッパリ、お肉は驚くほどジューシー！（コース料理）
+    </figcaption>
+  </figure>
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/madrid/madrid-02.jpg" alt="ボティンのデザート チーズケーキ" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>ボティンのコースデザート チーズケーキ</strong><br/>
+      濃厚でクリーミーな本格派。2人で120€（約23,205円）の大満足コースでした！
+    </figcaption>
+  </figure>
+</div>
+
+---
+
+### ③ バルセロナ編
+
+<div class="balloon-wrap balloon-right">
+  <div class="flex flex-col items-center">
+    <img src="/images/husband-spark.png" alt="夫" class="balloon-avatar" />
+    <span class="balloon-avatar-label">夫</span>
+  </div>
+  <div class="balloon-right flex-1">
+    <div class="balloon-body">
+      バルセロナで宿泊した「アレクサンドラ ホテル（ヒルトン系列）」はグラシア通りすぐの超好立地！AIの提案でカサ・バトリョを朝一番の9:00に持ってきたから涼しく鑑賞できたし、サグラダ・ファミリアも「受難のファサードの塔」に登るエレベーター付きチケットを事前確保しておいて大正解だった！
+    </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 items-start">
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/barcelona/barcelona-07.jpg" alt="サグラダ・ファミリア外観" class="w-full h-auto object-contain" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>圧巻のサグラダ・ファミリア外観</strong><br/>
+      天に向かってそびえる塔の迫力は圧巻！塔へのエレベーター付きチケットは事前予約必須。
+    </figcaption>
+  </figure>
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/barcelona/barcelona-04.jpg" alt="サグラダ・ファミリア内部" class="w-full h-auto object-contain" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>森のような聖堂内部とステンドグラス</strong><br/>
+      朝の光が差し込み、まるで万華鏡のような幻想的な光の世界が広がっていました。
+    </figcaption>
+  </figure>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 items-start">
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/barcelona/barcelona-01.jpg" alt="ガウディ建築 カサ・バトリョ" class="w-full h-auto object-contain" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>色鮮やかな幻想美のカサ・バトリョ</strong><br/>
+      グラシア通りに佇むガウディの傑作。朝一番の光に照らされる美しいファサードに感動！
+    </figcaption>
+  </figure>
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/barcelona/barcelona-06.jpg" alt="活気あふれるボケリア市場" class="w-full h-auto object-contain" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>バルセロナの台所「ボケリア市場」</strong><br/>
+      色鮮やかなフルーツや生ハムが並ぶ熱気満点の市場（スリには厳重警戒！）。
+    </figcaption>
+  </figure>
+</div>
+
+<div class="balloon-wrap">
+  <div class="flex flex-col items-center">
+    <img src="/images/wife-smile.png" alt="妻" class="balloon-avatar" />
+    <span class="balloon-avatar-label">妻</span>
+  </div>
+  <div class="balloon-left flex-1">
+    <div class="balloon-body">
+      一番助かったのは「真夏のシエスタ（お昼休憩）」！14:30〜16:30の猛暑ピークは無理せず一度ホテルに戻って、エアコンの効いた部屋で体力回復。夕方17:00からタクシーでグエル公園の正門へ乗り付けたから、体力を温存したまま景色と散策を楽しめたよね！
+    </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 items-start">
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/barcelona/barcelona-05.jpg" alt="グエル公園の美しいパノラマ" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>おとぎ話の世界のようなグエル公園</strong><br/>
+      モザイクタイルのベンチと、バルセロナの街並み・地中海を一望できる大人気スポット。
+    </figcaption>
+  </figure>
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/barcelona/barcelona-08.jpg" alt="グエル公園にて" class="w-full aspect-[3/4] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>夕暮れの心地よい風を感じて</strong><br/>
+      暑さが和らいだ夕方のグエル公園。シエスタのおかげで最後まで笑顔で観光できました！
+    </figcaption>
+  </figure>
+</div>
+
+---
+
+### ④ ヴェネチア編
+
+<div class="balloon-wrap balloon-right">
+  <div class="flex flex-col items-center">
+    <img src="/images/husband-spark.png" alt="夫" class="balloon-avatar" />
+    <span class="balloon-avatar-label">夫</span>
+  </div>
+  <div class="balloon-right flex-1">
+    <div class="balloon-body">
+      空港からジュデッカ島のヒルトンへの移動は、水上バス「アリラグーナ線」でホテル前の船着き場へ直行！重いスーツケースを持って本島の橋の階段を上り下りする重労働を完全に回避できたのは感動したよ。そして8日目の最終夜、旅の締めくくりに行ったヒルトンの「Skyline Rooftop Bar」から見渡す、360度の夜景パノラマでの乾杯は最高のフィナーレだったね！
+    </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/venice/venice-01.jpg" alt="ジュデッカ島から見たヴェネチア本島" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>ヒルトン前（ジュデッカ島）からの絶景パノラマ</strong><br/>
+      対岸のヴェネチア本島が一望できる特等席。夕暮れから夜にかけての移り変わりは圧巻！
+    </figcaption>
+  </figure>
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/venice/venice-02.jpg" alt="Do Moriのイカスミパスタとピザ" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>Trattoria Pizzeria Do Moriでのディナー</strong><br/>
+      ジュデッカ島の人気店でいただいた、本場の濃厚イカスミパスタと焼きたてピザ！
+    </figcaption>
+  </figure>
+</div>
+
+<div class="balloon-wrap">
+  <div class="flex flex-col items-center">
+    <img src="/images/wife-smile.png" alt="妻" class="balloon-avatar" />
+    <span class="balloon-avatar-label">妻</span>
+  </div>
+  <div class="balloon-left flex-1">
+    <div class="balloon-body">
+      7日目の夜、ジュデッカ島の「Trattoria Pizzeria Do Mori」で食べたディナーが忘れられない！対岸のヴェネチア本島が夕暮れから夜のライトアップへと移り変わる幻想的な景色を眺めながら、名物のイカスミパスタとピザ…贅沢すぎる時間だった！午後に現地直接交渉で乗った貸切ゴンドラも、穏やかな日差しの中で細い水路を巡れて最高にロマンチックだったね！
+    </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/venice/venice-03.jpg" alt="サン・マルコ寺院" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>サン・マルコ寺院（大聖堂）</strong><br/>
+      金色のモザイクが輝くビザンティン建築の至宝。事前予約でスムーズに入場！
+    </figcaption>
+  </figure>
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/venice/venice-06.jpg" alt="サン・マルコ鐘楼からの眺望" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>鐘楼の展望台から望む水の都</strong><br/>
+      エレベーターで一気に上へ。赤茶色の屋根とアドリア海の碧が広がる360度パノラマ！
+    </figcaption>
+  </figure>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/venice/venice-09.jpg" alt="カッフェ・フローリアン" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>ヨーロッパ最古の「カッフェ・フローリアン」</strong><br/>
+      1720年創業。サン・マルコ広場に響くオーケストラの生演奏を聴きながらの優雅な時間。
+    </figcaption>
+  </figure>
+  <figure class="bg-white rounded-2xl overflow-hidden shadow-soft border border-light-blue/20">
+    <img src="/images/trip-photos/venice/venice-11.jpg" alt="リアルト橋" class="w-full aspect-[4/3] object-cover" />
+    <figcaption class="p-3 text-xs text-warm-gray">
+      <strong>大運河にかかる「白い巨像」リアルト橋</strong><br/>
+      ゴンドラや水上バスが行き交うヴェネチア随一の活気あるフォトスポット！
+    </figcaption>
+  </figure>
+</div>
+
+---
+
+### ⑤ 帰国 ＆ （お役立ち技）上海ラウンジとアメックス無料配送編
+
+<div class="balloon-wrap balloon-right">
+  <div class="flex flex-col items-center">
+    <img src="/images/husband-smile.png" alt="夫" class="balloon-avatar" />
+    <span class="balloon-avatar-label">夫</span>
+  </div>
+  <div class="balloon-right flex-1">
+    <div class="balloon-body">
+      帰りの中国東方航空（上海乗り継ぎ）でも、プライオリティ・パスでラウンジを利用！夫は無料、妻は35ドル（約5,770円）で入室でき、軽食やドリンクを楽しみながらフライト疲れを癒やせたよ。そして帰国時にぜひ知っておきたいのが空港のアメックス「手荷物無料宅配サービス」！対象カードがあればスーツケースを自宅まで無料配送してくれるんだ。今回は使わなかったけれど、お土産で荷物が重くなった時や疲れている時は手ぶらで身軽に帰れる神サービスなので、これから行く人はぜひチェックしてみてね！
+    </div>
+  </div>
+</div>
+
+<div class="balloon-wrap">
+  <div class="flex flex-col items-center">
+    <img src="/images/wife-spark.png" alt="妻" class="balloon-avatar" />
+    <span class="balloon-avatar-label">妻</span>
+  </div>
+  <div class="balloon-left flex-1">
+    <div class="balloon-body">
+      シンガポールでも上海でもラウンジでゆったり過ごせたおかげで、乗り継ぎ便の長旅も驚くほど快適だったよね！AIの旅程づくりからクレカ・デビットカードのお得ワザまで、知っているだけで旅の快適さが段違いだったね！
+    </div>
+  </div>
+</div>
+
+---
+
+## 【保存版】個人手配の落とし穴と対策まとめ
+
+### 事前予約が必須なチケット
+
+<div class="warning-box">
+⚠️ **以下の観光スポットは必ず公式サイトから事前予約！**
+当日券は売切れor長蛇の列で入れないケースがあります。
+
+- **サグラダ・ファミリア**（塔に登るエレベーター付きチケットを推奨）→ [公式サイト](https://www.sagradafamilia.org/en/)
+- **グエル公園**（朝のアーリーアクセス枠がおすすめ）→ [公式サイト](https://www.parkguell.cat/en/)
+- **カサ・バトリョ**（音声ガイド付き入場券）→ [公式サイト](https://www.casabatllo.es/en/)
+- **サン・マルコ広場（鐘楼・大聖堂）** → [公式サイト](https://www.basilicasanmarco.it/)
+</div>
+
+### 高速鉄道（iryo / Renfe）の荷物ルール
+
+特大スーツケースがある場合は、**荷物持ち込み枠（有料）を予約時に追加**しておきましょう。日本の新幹線のように「車両後部に置く」場所がなく、検札で追加料金を取られることがあります。
+
+### スリ対策
+
+- パスポート本体はホテルの**金庫へ**（コピーを携帯）
+- 予約票は**紙にも印刷**して持ち歩く（スマホが盗難・電池切れになった場合の保険）
+- バルセロナのランブラス通り・地下鉄は特に注意
+
+### 長時間の乗り継ぎはプライオリティ・パスを活用！
+
+ヨーロッパ便の乗り継ぎ（トランジット）で数時間の待ち時間が発生する場合、**プライオリティ・パス（世界中の空港VIPラウンジを使えるパス）**があると旅の快適度が劇的に跳ね上がります！
+
+<div class="tip-box">
+<p class="tip-box-title">💡 私たちが使った方法（プラチナデビット付帯特典）</p>
+
+- **本会員（夫）**：無料
+- **同伴者（妻）**：35ドル（日本円で約5,770円 ※利用時のレート）
+- **利用した空港**：シンガポール・チャンギ国際空港、中国・上海浦東国際空港
+- **嬉しかったポイント**：軽食・温かい料理・デザート・アルコール（ビールやワイン）が食べ飲み放題！さらにシンガポールでは**清潔なシャワールーム**も利用でき、真夏の観光後に汗を流してサッパリしてから深夜便に乗れました。
+
+空港内のレストランで毎回食事やお茶をするより圧倒的にコスパが高く、静かな空間でスマホを充電しながらゆったり過ごせるので、乗り継ぎ便を使う方はぜひ準備しておくのがおすすめです！
+</div>
+
+---
+
+## 【超重要・最新情報】アリラグーナ線の乗り方リアル情報
+
+ヴェネチアへの移動で多くの旅行者が悩むのが「アリラグーナ線（水上バス）のチケット」。
+
+<div class="compare-box">
+ネットの古い情報に「現地の窓口で紙のチケットに引き換えが必要」と書かれているケースがありますが…
+</div>
+
+<div class="balloon-wrap balloon-right">
+  <div class="flex flex-col items-center">
+    <img src="/images/husband-spark.png" alt="夫" class="balloon-avatar" />
+    <span class="balloon-avatar-label">夫</span>
+  </div>
+  <div class="balloon-right flex-1">
+    <div class="balloon-body">
+      実際は交換の必要なく、スマホに保存されているQRコード画面のままで乗れたよ！古いブログ情報で焦ったけど、現地で確認したら引き換え不要だった。現地の窓口に並ぶ時間が省けてめちゃくちゃ助かった！
+    </div>
+  </div>
+</div>
+
+<div class="balloon-wrap">
+  <div class="flex flex-col items-center">
+    <img src="/images/wife-smile.png" alt="妻" class="balloon-avatar" />
+    <span class="balloon-avatar-label">妻</span>
+  </div>
+  <div class="balloon-left flex-1">
+    <div class="balloon-body">
+      しかも日付に猶予があった！行き先と出発地点さえ合っていれば、数日ずれても乗れる仕様だったから、フライトが遅れた場合でも安心だったね。（※購入時に条件をよく確認してね）
+    </div>
+  </div>
+</div>
+
+---
+
+## まとめ：AI個人手配旅のススメ
+
+旅行代理店に頼まなくても、AIを使えば**プロ顔負けの旅程**が組めることが証明できました。
+
+| 個人手配のメリット | 内容 |
+|---|---|
+| 💰 コスト最適化 | ポイント・特典を組み合わせて大幅節約 |
+| 🎯 自分好みにカスタマイズ | 行きたい場所・食べたいもの・休憩タイミングを完全自分仕様に |
+| 🤖 AIが心強い相棒 | ルート最適化・トラブル対応・書類確認まで何でも相談できる |
+| 📱 現地でも即サポート | 分からない言葉・書類はその場でAIに投げればOK |
+
+---
+
+<div class="info-box">
+<p class="info-box-title">🎬 この旅のVlogも公開中！</p>
+
+トレドの絶景展望台、サグラダ・ファミリアの圧巻の内部、ヴェネチアの水路を進む貸切ゴンドラ…
+文章では伝わりきらない「現地の空気感」は、YouTube Vlogでお届けしています。
+
+**▼ チャンネルはこちら**  
+[くれた夫婦のAI旅と暮らし - YouTube](https://www.youtube.com/@kureta-kureta)
+
+</div>
+
+---
+
+*この記事が、あなたの旅の計画に少しでも役立てれば嬉しいです！*  
+*読んでくださりありがとうございました🐨*
