@@ -6,6 +6,7 @@ import mdx from '@astrojs/mdx';
 // https://astro.build/config
 // ★ デプロイ後、site の値を実際のURLに変更してください
 export default defineConfig({
+  output: 'static',
   site: 'https://kureta-fufu.pages.dev',
   integrations: [
     tailwind({
