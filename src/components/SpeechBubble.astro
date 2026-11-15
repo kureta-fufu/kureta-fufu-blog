@@ -1,0 +1,100 @@
+---
+interface Props {
+  speaker: string;
+  avatar: string;
+  position?: 'left' | 'right';
+}
+
+const { speaker, avatar, position = 'left' } = Astro.props;
+const isRight = position === 'right';
+---
+
+<div class:list={["balloon-container", isRight ? "balloon-right" : "balloon-left"]}>
+  {!isRight && (
+    <div class="balloon-avatar-wrap">
+      <img src={avatar} alt={speaker} class="balloon-avatar" />
+      <span class="balloon-avatar-label">{speaker}</span>
+    </div>
+  )}
+  <div class="balloon-text">
+    <slot />
+  </div>
+  {isRight && (
+    <div class="balloon-avatar-wrap">
+      <img src={avatar} alt={speaker} class="balloon-avatar" />
+      <span class="balloon-avatar-label">{speaker}</span>
+    </div>
+  )}
+</div>
+
+<style>
+  .balloon-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 1.5rem 0;
+  }
+
+  .balloon-right {
+    flex-direction: row-reverse;
+  }
+
+  .balloon-avatar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .balloon-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e5e7eb;
+  }
+
+  .balloon-avatar-label {
+    font-size: 0.7rem;
+    color: #6b7280;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+
+  .balloon-text {
+    position: relative;
+    background: #f3f4f6;
+    border-radius: 12px;
+    padding: 12px 16px;
+    max-width: calc(100% - 90px);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #374151;
+  }
+
+  .balloon-left .balloon-text::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 18px;
+    border: 6px solid transparent;
+    border-right-color: #f3f4f6;
+  }
+
+  .balloon-right .balloon-text {
+    background: #dbeafe;
+  }
+
+  .balloon-right .balloon-text::before {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 18px;
+    border: 6px solid transparent;
+    border-left-color: #dbeafe;
+  }
+
+  .balloon-text :global(p) {
+    margin: 0;
+  }
+</style>
